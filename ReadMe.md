@@ -17,3 +17,10 @@ A secure and scalable real-time chat application built with **Express.js**, **So
   npm install
   npm run start
   ```
+
+**Screenshots:**
+![](imgs/login.png)
+<br><br>
+![](imgs/chat.png)
+<br><br>
+![](imgs/bot.png)
