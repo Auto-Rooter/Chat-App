@@ -1,0 +1,18 @@
+<div class="bg-white p-4 shadow-md">
+  <form (ngSubmit)="sendMessage()" class="flex items-center">
+    <input
+      [(ngModel)]="messageText"
+      name="messageText"
+      required
+      (input)="onTextChange()"
+      placeholder="Type your message..."
+      class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:border-blue-300"
+    />
+    <button
+      type="submit"
+      class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg focus:outline-none"
+    >
+      Send
+    </button>
+  </form>
+</div>

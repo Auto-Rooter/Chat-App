@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
+import { CreateMessageComponent } from './chat/create-message/create-message.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -14,6 +15,7 @@ import { routes } from './app.routes';
   declarations: [
     AppComponent,
     ChatComponent,
+    CreateMessageComponent,
     LoginComponent],
   imports: [
     BrowserModule,
