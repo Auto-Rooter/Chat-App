@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -11,8 +12,9 @@ import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    ChatComponent,
+    LoginComponent],
   imports: [
     BrowserModule,
     FormsModule,
