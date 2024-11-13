@@ -1,0 +1,24 @@
+.msg-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-around;
+}
+
+.timestamp {
+  margin-right: 25px;
+  text-align:left ;
+  margin-top: 5px;
+}
+
+.bg-green-200 {
+  background-color: #ccf5cc;
+}
+
+.text-green-900 {
+  color: #2f4f2f;
+}
+
+.emoji-avatar {
+  font-size: 2rem;
+}

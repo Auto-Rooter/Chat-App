@@ -1,0 +1,71 @@
+<div class="flex flex-col h-screen bg-gray-100">
+  <!-- Header -->
+  <div class="flex items-center justify-between bg-white p-4 shadow-md">
+    <h2 class="text-2xl font-semibold">Chat Room({{currentUser?.username}})</h2>
+    <button
+      (click)="logout()"
+      class="text-red-500 hover:text-red-700 focus:outline-none"
+    >
+      Logout
+    </button>
+  </div>
+
+  <!-- Messages -->
+  <div
+    class="flex-1 overflow-y-auto p-4"
+    id="messageContainer"
+    #messageContainer
+  >
+    <div *ngFor="let message of messages">
+      <div
+        [ngClass]="{
+          'text-right': message.user === currentUser?.username,
+          'text-left': message.user !== currentUser?.username
+        }"
+        class="mb-4"
+      >
+        <div *ngIf="message.user === 'Chatbot'" class="emoji-avatar mr-2">
+          🤖
+        </div>
+        <div
+          class="inline-block rounded-lg px-4 py-2 relative"
+          [ngClass]="{
+            'bg-blue-500 text-white': message.user === currentUser?.username,
+            'bg-gray-300 text-gray-800': message.user !== currentUser?.username,
+            'bg-green-200 text-green-900': message.user === 'Chatbot'
+          }"
+        >
+          <p class="text-sm">
+            <span class="font-semibold">
+              {{ message.user }}
+            </span>:
+            {{ message.text }}
+          </p>
+          <div class="msg-footer">
+            <p class="timestamp text-xs ml-0 text-gray-600">
+              {{ message.timestamp | date: 'shortTime' }}
+            </p>
+            <ng-container *ngIf="message.user === currentUser?.username">
+              <span
+                class="absolute bottom-0 right-0 mr-1 text-xs text-gray-200"
+              >
+                <i>{{ message.status }}</i>
+              </span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing Notification -->
+    <div *ngIf="typingUsers.length > 0" class="mb-4">
+      <p class="text-sm text-gray-500">
+        {{ typingUsers.join(', ') }}
+        {{ typingUsers.length === 1 ? 'is' : 'are' }} typing...
+      </p>
+    </div>
+  </div>
+
+  <!-- Message Input Component -->
+  <app-create-message></app-create-message>
+</div>
