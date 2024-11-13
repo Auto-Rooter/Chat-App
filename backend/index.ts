@@ -4,9 +4,11 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser'; 
 import { config } from './utils/config';
 import authRoutes from './routes/auth.routes';
-import  messageRoutes from './routes/message.routes';
+import messageRoutes from './routes/message.routes';
 import { initializeSocket } from './services/socket';
 import {errorHandler} from './middlewares/errorHandler';
+import { PluginManager } from './utils/pluginManager';
+import { ChatbotDemoPlugin } from './plugins/chatbotPlugin';
 
 const app = express();
 const server = http.createServer(app);
@@ -15,6 +17,11 @@ const corsConfig = {
   credentials: true,
 };
 const io = initializeSocket(server);
+
+// Register the PluginManager
+const pluginManager = new PluginManager();
+pluginManager.register(new ChatbotDemoPlugin());
+pluginManager.initializePlugins(app, io);
 
 app.use(cors(corsConfig));
 app.use(express.json());
