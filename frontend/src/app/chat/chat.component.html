@@ -60,8 +60,8 @@
     <!-- Typing Notification -->
     <div *ngIf="typingUsers.length > 0" class="mb-4">
       <p class="text-sm text-gray-500">
-        {{ typingUsers.join(', ') }}
-        {{ typingUsers.length === 1 ? 'is' : 'are' }} typing...
+        <i>{{ typingUsers.join(', ') }}
+        {{ typingUsers.length === 1 ? 'is' : 'are' }} typing...</i>
       </p>
     </div>
   </div>
